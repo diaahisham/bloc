@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 class ItemModel {
   ItemModel({
     required this.page,
@@ -42,6 +44,7 @@ class Results {
     required this.releaseDate,
     required this.title,
     required this.video,
+    required this.voteAverage,
     required this.voteCount,
   });
   late final bool adult;
@@ -56,6 +59,7 @@ class Results {
   late final String releaseDate;
   late final String title;
   late final bool video;
+  late final dynamic? voteAverage;
   late final int voteCount;
 
   Results.fromJson(Map<String, dynamic> json) {
@@ -71,6 +75,7 @@ class Results {
     releaseDate = json['release_date'];
     title = json['title'];
     video = json['video'];
+    voteAverage = json['vote_average'];
     voteCount = json['vote_count'];
   }
 
@@ -88,6 +93,7 @@ class Results {
     _data['release_date'] = releaseDate;
     _data['title'] = title;
     _data['video'] = video;
+    _data['vote_average'] = voteAverage;
     _data['vote_count'] = voteCount;
     return _data;
   }
